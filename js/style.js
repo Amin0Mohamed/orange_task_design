@@ -1,3 +1,4 @@
+//***************cairo timer******************************
 setInterval( cairoTime,1000);
 function cairoTime() {
     var time = new Date();
@@ -24,7 +25,7 @@ function cairoTime() {
     document.getElementById('cairo-time').innerHTML = houre + ":" + min + " " +en;
 }
 
-//**********************************************
+//***************sanTime timer******************************
 setInterval( sanTime,1000);
 function sanTime() {
     var time = new Date();
@@ -49,6 +50,20 @@ function sanTime() {
     }
 
     document.getElementById('san-time').innerHTML = houre + ":" + min + " " +en;
+}
+//*************************control of the height of landing page***********************************
+setInterval(getResolution,500);
+function getResolution() {
+
+    if (window.innerHeight <= 530){
+        document.querySelector('header').style.height='550px';
+        document.querySelector('header .header_overlay').style.height='550px';
+        document.querySelector('header .header_video').style.height='550px';
+    }else {
+        document.querySelector('header').style.height='100vh';
+        document.querySelector('header .header_overlay').style.height='100vh';
+        document.querySelector('header .header_video').style.height='100vh';
+    }
 }
 
 
