@@ -15,11 +15,107 @@ header{
   background-color: #f50;
   position: relative;
 }
-
+nav a:first-child{border: 1px solid #f50}
+.nav_logo{
+  opacity: 0;
+  transition: all 1s ease-in;
+}
+nav a:first-child:hover .nav_logo{
+  opacity: 1;
+}
 header nav.navbar {
+  padding: 17px;
   position: absolute;
   z-index: 3;
   width: 100%;
+}
+
+.navbar-toggler {
+  position: relative;
+  z-index: 3;
+  /*transition: all 0.3s;*/
+}
+.navbar-toggler:focus{
+  outline: none;
+}
+.nav_menu{
+  text-align: center;
+  margin-bottom: 41%;
+}
+.s{left:0%}
+.ss{left:54%}
+.nav_small{
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  width: 100%;
+  z-index: 4;
+  background-color: #000;
+}
+.one{transform: rotate(45deg);}
+.two{transform: translate(-1px , -6px) rotate(-45deg);}
+.three{visibility: hidden;}
+header nav .slash{
+  background: #e9ecef;
+  width: 23px;
+  height: 2px;
+  display: block;
+  padding: 2px;
+  margin: 2px;
+}
+
+.small_question_btn{
+  width: 95%;
+  margin-right: 0px;
+  background-color: #fff;
+  color: #000 !important;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+header nav .question_btn{
+  margin-right: 5%;
+  line-height: 2.375rem;
+  white-space: nowrap;
+  font-weight: 600;
+  background-color: #000;
+  color: #fff !important;
+  padding: 0 10px;
+  border-radius: 4px;
+}
+header nav .question_btn:hover{
+  background-color: #323940;
+}
+header nav .navbar-nav {
+  padding: 10px;
+  margin-right: 12%;}
+header nav .navbar-nav .nav-link {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 2rem;
+  font-size: 0.8rem;
+  line-height: 2;
+  text-transform: uppercase;
+  color: #fff;
+  transition-duration: 0.2s;
+  transition-property: color;
+  font-weight: 600;
+}
+header nav .navbar-nav .nav-link::after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  margin-top: 0.5rem;
+  border-top: 1px solid;
+  opacity: 0;
+  transform: translateY(2px);
+  transition-duration: 0.2s;
+}
+header nav .navbar-nav .nav-link:hover::after{
+  opacity: 1;
+  transform: none;
 }
 header .header_overlay{
   position: absolute;
@@ -51,7 +147,7 @@ header .header_content{
   position: absolute;
   z-index: 2;
   width: 86%;
-  left: 6%;
+  left: 3%;
   top: 22%;
   bottom: 5%;
 }
@@ -63,7 +159,7 @@ header .header_content h2{
 }
 header .header_content h1{
   font-family: 'Oswald',sans-serif;
-  font-size: 114px;
+  font-size: calc(1rem + ((13vw - 20px)));
   font-weight: 700;
   color: #fff;
   padding-bottom: 40px;
@@ -162,6 +258,56 @@ header .info .items .item h5 {
   max-width: 280px;
   width: 100%;
   box-sizing: border-box;
+}
+
+.cc{
+    position: absolute;
+    z-index: 2;
+    bottom: 20px;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    padding: 5px;
+    width: 21px;
+    height: 33px;
+    border: 2px solid #fff;
+    opacity: 0.5;
+    border-radius: 33%;
+    background-color: transparent;
+    animation: cc 1s ease-in infinite alternate;
+}
+.cc:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+.cc .ccc{
+    width: 3px;
+    margin: 0px auto 8px auto;
+    height: 9px;
+    border-radius: 29%;
+    background-color: #fff;
+    opacity: 0.5;
+    animation: ccc 1s ease-in infinite alternate;
+}
+.cc:hover .ccc{
+    opacity: 1;
+}
+
+@keyframes cc {
+    0% {
+        transform: translateY(0);
+       }
+    100% {
+        transform: translateY(-6px);
+      }
+}
+@keyframes ccc {
+    0% {
+        transform: translateY(5px);
+    }
+    100% {
+        transform: translateY(-4px);
+    }
 }
 /*************end land page*********/
 
@@ -481,6 +627,30 @@ footer .copyrights {
 /*  start responsive  */
  /*Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
+  header nav .question_btn {
+    margin-right: 21%;
+  }
+  header .header_content h2 {
+    color: #FFFFFF;
+    font-size: 17px;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  header .header_content h1{
+    font-size: calc(1rem + ((13vw - 20px)));
+    font-weight: 500;
+  }
+  header .header_content p {
+    /* width: 485px; */
+    max-width: calc(100vw - 40px);
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 33px;
+  }
+  header nav .question_btn{
+    font-size: 0.8rem;
+    letter-spacing: 2px;}
   /*   start our-clients  */
   .our-clients .container {
     max-width: 94%;}
@@ -564,10 +734,19 @@ footer .copyrights {
     margin-bottom: 10px;
   }
   /*   end our-solution  */
+  header .info{
+    display: none;
+  }
 }
 
  /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
+  header nav .question_btn {
+    margin-right: 21%;}
+  header .header_content{left: 2%}
+  header nav .question_btn{
+    font-size: 0.8rem;
+    letter-spacing: 2px;}
   /*   start our-clients  */
   .our-clients .container {
     max-width: 94%;}
@@ -650,10 +829,14 @@ footer .copyrights {
     margin-bottom: 10px;
   }
   /*   end our-solution  */
+  header .info{
+    display: none;
+  }
 }
 
 /*// Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) and (max-width: 991.98px) {
+  header .header_content{left: 2%}
   #our-solution .container {
     max-width: 100%;
   }
@@ -679,11 +862,24 @@ footer .copyrights {
     font-size: 17px;
     text-decoration: none;
     display: block;
+  }
+  header .info{
+    display: none;
   }
 }
 
  /*Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
+
+  header .header_content p {
+    width: 68%;}
+  header .header_content h1 {
+    font-family: 'Oswald',sans-serif;
+    font-size: calc(1rem + ((13vw - 80px)));
+  }
+  header .info {
+    width: 26%;
+  }
   #our-solution .container {
     max-width: 100%;
   }
@@ -712,5 +908,12 @@ footer .copyrights {
   }
 }
 
-
+@media (min-width: 1200px) {
+  header .header_content h1 {
+    font-family: 'Oswald',sans-serif;
+    font-size: calc(1rem + ((13vw - 88px)));}
+}
 /*  end responsive  */
+
+
+
